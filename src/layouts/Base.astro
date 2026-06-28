@@ -9,9 +9,6 @@ const {
   title,
   description = 'Washington University Emergency Medicine simulation — education and safety intelligence.',
 } = Astro.props;
-
-const eduUrl = 'https://edu.washuemsim.org';
-const intelUrl = 'https://intel.washuemsim.org';
 ---
 
 <!doctype html>
@@ -35,20 +32,8 @@ const intelUrl = 'https://intel.washuemsim.org';
         <span class="site-mark__unit">WashU Emergency Medicine</span>
         <span class="site-mark__name">Simulation</span>
       </a>
-      <nav class="site-nav" aria-label="Programs">
-        <a href={eduUrl} class="site-nav__link">Education</a>
-        <a href={intelUrl} class="site-nav__link">Intelligence</a>
-      </nav>
     </header>
 
     <slot />
-
-    <footer class="site-footer">
-      <div class="wrap">
-        <p class="unit">Washington University School of Medicine</p>
-        <p>Department of Emergency Medicine · Simulation</p>
-        <p>© 2026 Washington University in St. Louis</p>
-      </div>
-    </footer>
   </body>
 </html>
