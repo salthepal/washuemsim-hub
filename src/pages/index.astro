@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+
+const eduUrl = 'https://edu.washuemsim.org';
+const intelUrl = 'https://intel.washuemsim.org';
+
+const programs = [
+  {
+    href: eduUrl,
+    host: 'edu.washuemsim.org',
+    kicker: 'For residents & faculty',
+    name: 'Simulation Education',
+    blurb:
+      'The Emergency Medicine residency simulation curriculum — design modules, annotated case exemplars, interactive case dissections, and a curated reading library.',
+    go: 'Enter the education portal',
+  },
+  {
+    href: intelUrl,
+    host: 'intel.washuemsim.org',
+    kicker: 'For the sim & safety team',
+    name: 'Sim Intelligence',
+    blurb:
+      'Turn simulation sessions into safety work — structured post-session reports, Latent Safety Threat tracking, follow-up, and searchable institutional learning.',
+    go: 'Open the intelligence platform',
+  },
+];
+---
+
+<Base title="Home">
+  <main class="hub">
+    <section class="hero wrap">
+      <p class="eyebrow">Washington University School of Medicine · Emergency Medicine</p>
+      <h1>Simulation that <span class="accent">teaches</span> and <span class="accent">protects</span>.</h1>
+      <p class="lede">
+        One program, two tools: a residency simulation curriculum and a clinical
+        safety-intelligence platform. Choose where you're headed.
+      </p>
+    </section>
+
+    <section class="programs wrap" aria-label="Programs">
+      {
+        programs.map((p) => (
+          <a class="program" href={p.href}>
+            <span class="program__kicker">{p.kicker}</span>
+            <h2>{p.name}</h2>
+            <p>{p.blurb}</p>
+            <span class="program__go">{p.go}</span>
+            <span class="program__host">{p.host}</span>
+          </a>
+        ))
+      }
+    </section>
+  </main>
+</Base>

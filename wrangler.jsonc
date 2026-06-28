@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "washuemsim-hub",
+  "compatibility_date": "2026-06-04",
+  "workers_dev": true,
+  "observability": {
+    "enabled": true
+  },
+  // Static-assets-only Worker: no server script, just the prerendered Astro
+  // output. Custom domains route the apex + www to this deployment.
+  "assets": {
+    "directory": "./dist"
+  },
+  "routes": [
+    { "pattern": "washuemsim.org", "custom_domain": true },
+    { "pattern": "www.washuemsim.org", "custom_domain": true }
+  ]
+}

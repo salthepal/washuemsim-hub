@@ -1,0 +1,54 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+const {
+  title,
+  description = 'Washington University Emergency Medicine simulation — education and safety intelligence.',
+} = Astro.props;
+
+const eduUrl = 'https://edu.washuemsim.org';
+const intelUrl = 'https://intel.washuemsim.org';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title} — WashU EM Simulation</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Spline+Sans:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header wrap">
+      <a href="/" class="site-mark" aria-label="WashU Emergency Medicine Simulation home">
+        <span class="site-mark__unit">WashU Emergency Medicine</span>
+        <span class="site-mark__name">Simulation</span>
+      </a>
+      <nav class="site-nav" aria-label="Programs">
+        <a href={eduUrl} class="site-nav__link">Education</a>
+        <a href={intelUrl} class="site-nav__link">Intelligence</a>
+      </nav>
+    </header>
+
+    <slot />
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p class="unit">Washington University School of Medicine</p>
+        <p>Department of Emergency Medicine · Simulation</p>
+        <p>© 2026 Washington University in St. Louis</p>
+      </div>
+    </footer>
+  </body>
+</html>
