@@ -14,6 +14,9 @@ The hub only links out — it shares no backend with the apps and holds no
 secrets. Branding (design tokens, type, layout) mirrors the Education portal so
 the three properties read as one program.
 
+`edu.washuemsim.org` and `intel.washuemsim.org` are protected by Cloudflare
+Access. The hub itself stays public at the apex and `www` hostnames.
+
 ## Develop
 
 ```bash
@@ -26,7 +29,8 @@ npm run preview  # serve the built site
 ## Deploy
 
 Deployed as a static-assets Cloudflare Worker. The apex and `www` are attached
-as custom domains in [wrangler.jsonc](wrangler.jsonc).
+as custom domains in [wrangler.jsonc](wrangler.jsonc), `workers.dev` is disabled,
+and security headers are served from [public/_headers](public/_headers).
 
 ```bash
 npm run deploy   # astro build && wrangler deploy
