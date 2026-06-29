@@ -17,6 +17,7 @@
   --coral-soft: #e7c6b8;
   --line: #ddd5c8;
   --line-strong: #bfb5a5;
+  --shadow-color: rgba(31, 37, 35, 0.45);
 
   /* Type */
   --display: 'Fraunces', Georgia, 'Times New Roman', serif;
@@ -35,6 +36,21 @@
   --radius: 3px;
 }
 
+html.dark {
+  color-scheme: dark;
+  --paper: #101312;
+  --paper-2: #181c1a;
+  --ink: #f3f1eb;
+  --ink-soft: #b8c0bc;
+  --petrol: #6db3ad;
+  --petrol-2: #8bc8c2;
+  --coral: #f08a6c;
+  --coral-soft: #6d3529;
+  --line: #303834;
+  --line-strong: #4b5651;
+  --shadow-color: rgba(0, 0, 0, 0.55);
+}
+
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
@@ -50,6 +66,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+html,
+body {
+  transition: background-color .15s ease, color .15s ease;
 }
 
 h1, h2, h3 {
@@ -108,10 +129,42 @@ a:hover { color: var(--coral); }
   line-height: 1.05;
 }
 
-.site-nav { display: flex; gap: 1.4rem; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.04em; }
+.site-nav { display: flex; align-items: center; gap: 1.4rem; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.04em; }
 .site-nav__link { color: var(--ink-soft); text-decoration: none; padding-bottom: 0.2rem; border-bottom: 2px solid transparent; }
 .site-nav__link:hover, .site-nav__link:focus-visible { color: var(--ink); }
 .site-nav__link:focus-visible { outline: 2px solid var(--coral); outline-offset: 4px; }
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--ink);
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  background: var(--paper-2);
+  color: var(--ink);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 3px;
+}
+
+.theme-toggle__icon {
+  font-size: 0.9rem;
+  line-height: 1;
+}
 
 /* Mono eyebrow */
 .eyebrow {
@@ -175,7 +228,7 @@ main.hub { flex: 1 0 auto; }
 .program:hover, .program:focus-visible {
   border-color: var(--petrol-2);
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px -18px rgba(31, 37, 35, 0.45);
+  box-shadow: 0 12px 28px -18px var(--shadow-color);
   color: inherit;
 }
 .program:focus-visible { outline: 2px solid var(--coral); outline-offset: 3px; }
