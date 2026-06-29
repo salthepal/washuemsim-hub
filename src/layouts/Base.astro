@@ -19,18 +19,7 @@ const {
     <meta name="description" content={description} />
     <meta name="color-scheme" content="light dark" />
     <title>{title} — WashU EM Simulation</title>
-    <script is:inline>
-      (() => {
-        try {
-          document.documentElement.classList.toggle(
-            'dark',
-            localStorage.getItem('washu-em-sim-theme') === 'dark'
-          );
-        } catch {
-          document.documentElement.classList.remove('dark');
-        }
-      })();
-    </script>
+    <script is:inline src="/theme.js"></script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -52,46 +41,5 @@ const {
     </header>
 
     <slot />
-    <script is:inline>
-      (() => {
-        const key = 'washu-em-sim-theme';
-        const button = document.querySelector('.theme-toggle');
-        if (!button) return;
-
-        const apply = (theme) => {
-          const isDark = theme === 'dark';
-          document.documentElement.classList.toggle('dark', isDark);
-          button.setAttribute('aria-pressed', String(isDark));
-          button.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-          const icon = button.querySelector('.theme-toggle__icon');
-          const text = button.querySelector('.theme-toggle__text');
-          if (icon) icon.textContent = isDark ? '☀' : '☾';
-          if (text) text.textContent = isDark ? 'Light' : 'Dark';
-        };
-
-        const getTheme = () => {
-          try {
-            return localStorage.getItem(key) === 'dark' ? 'dark' : 'light';
-          } catch {
-            return 'light';
-          }
-        };
-
-        apply(getTheme());
-
-        button.addEventListener('click', () => {
-          const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
-          try {
-            localStorage.setItem(key, nextTheme);
-          } catch {}
-          apply(nextTheme);
-          window.dispatchEvent(new CustomEvent('washu-theme-change', { detail: { theme: nextTheme } }));
-        });
-
-        window.addEventListener('storage', (event) => {
-          if (event.key === key) apply(getTheme());
-        });
-      })();
-    </script>
   </body>
 </html>
