@@ -8,7 +8,6 @@ const programs = [
   {
     href: eduUrl,
     host: 'edu.washuemsim.org',
-    kicker: 'Residents & faculty',
     name: 'Simulation Education',
     blurb:
       'Residency simulation curriculum: modules, case exemplars, case dissections, and the reading library.',
@@ -17,7 +16,6 @@ const programs = [
   {
     href: intelUrl,
     host: 'intel.washuemsim.org',
-    kicker: 'Sim & safety team',
     name: 'Sim Intelligence',
     blurb:
       'Post-session reports, Latent Safety Threat tracking, follow-up, and search across prior sessions.',
@@ -29,7 +27,6 @@ const programs = [
 <Base title="Home">
   <main class="hub">
     <section class="hero wrap">
-      <h1>EM Simulation</h1>
       <p class="lede">
         Internal hub for the Emergency Medicine simulation program tools.
       </p>
@@ -39,7 +36,6 @@ const programs = [
       {
         programs.map((p) => (
           <a class="program" href={p.href}>
-            <span class="program__kicker">{p.kicker}</span>
             <h2>{p.name}</h2>
             <p>{p.blurb}</p>
             <span class="program__go">{p.go}</span>

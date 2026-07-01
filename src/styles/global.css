@@ -198,7 +198,7 @@ a:hover { color: var(--coral); }
 
 main.hub { flex: 1 0 auto; }
 
-.hero { padding-block: clamp(3rem, 8vw, 5.5rem) clamp(2rem, 5vw, 3.2rem); }
+.hero { padding-block: clamp(2rem, 5vw, 3.5rem) clamp(2rem, 5vw, 3.2rem); }
 .hero h1 {
   font-size: var(--step-4);
   max-width: 16ch;
@@ -233,14 +233,6 @@ main.hub { flex: 1 0 auto; }
 }
 .program:focus-visible { outline: 2px solid var(--coral); outline-offset: 3px; }
 
-.program__kicker {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--coral);
-  margin-bottom: 0.7rem;
-}
 .program h2 { font-size: var(--step-2); margin-bottom: 0.5rem; }
 .program p { margin: 0 0 1.4rem; color: var(--ink-soft); max-width: 42ch; }
 
