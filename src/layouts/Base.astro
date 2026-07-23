@@ -7,7 +7,7 @@ interface Props {
 }
 const {
   title,
-  description = 'Washington University Emergency Medicine simulation — education and safety intelligence.',
+  description = 'WUEM Simulation — education and safety intelligence.',
 } = Astro.props;
 ---
 
@@ -18,7 +18,7 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="color-scheme" content="light dark" />
-    <title>{title} — WashU EM Simulation</title>
+    <title>{title} — WUEM Simulation</title>
     <script is:inline src="/theme.js"></script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,8 +30,8 @@ const {
   </head>
   <body>
     <header class="site-header wrap">
-      <a href="/" class="site-mark" aria-label="WashU Emergency Medicine Simulation home">
-        <span class="site-mark__unit">WashU Emergency Medicine</span>
+      <a href="/" class="site-mark" aria-label="WUEM Simulation home">
+        <span class="site-mark__unit">WUEM</span>
         <span class="site-mark__name">Simulation</span>
       </a>
       <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">

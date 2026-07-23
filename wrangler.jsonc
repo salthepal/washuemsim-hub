@@ -12,6 +12,8 @@
     "directory": "./dist"
   },
   "routes": [
+    { "pattern": "wuemsim.org", "custom_domain": true },
+    { "pattern": "www.wuemsim.org", "custom_domain": true },
     { "pattern": "washuemsim.org", "custom_domain": true },
     { "pattern": "www.washuemsim.org", "custom_domain": true }
   ]
